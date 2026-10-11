@@ -1,0 +1,309 @@
+---
+import Base from "../layouts/Base.astro";
+import { profile, certifications, education } from "../data/site";
+---
+
+<Base title={`${profile.name} — Executive Resume (PDF / ATS)`} description={`Official resume of ${profile.name}, Technical Architect | Generative AI and Lead SDET.`}>
+  <!-- Top Bar (Screen Only) -->
+  <div class="no-print sticky top-0 z-50 border-b border-white/[0.08] bg-slate-950/90 px-4 py-3 backdrop-blur-md">
+    <div class="mx-auto flex max-w-4xl items-center justify-between">
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-xs sm:text-sm font-medium text-slate-200 transition-colors hover:border-sky-400/40 hover:bg-sky-500/10 hover:text-sky-300"
+      >
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        <span>Back to Interactive Portfolio</span>
+      </a>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button
+          type="button"
+          onclick="window.print()"
+          class="inline-flex items-center gap-2 rounded-lg bg-sky-500 px-4 py-1.5 text-xs sm:text-sm font-semibold text-slate-950 transition-all hover:bg-sky-400 active:translate-y-0.5"
+        >
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+          </svg>
+          <span>Print / Save as PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Document Sheet Container -->
+  <main id="content" class="px-4 py-8 sm:py-12">
+    <div class="resume-paper mx-auto max-w-4xl rounded-2xl border border-white/10 bg-[#0d1527] text-slate-100 p-8 sm:p-14 shadow-2xl print:bg-white print:text-slate-950 print:border-none print:p-0 print:shadow-none font-sans text-sm leading-relaxed">
+      <!-- Resume Header -->
+      <header class="border-b-2 border-sky-400/40 print:border-slate-950 pb-4">
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white print:text-slate-950 uppercase font-display">
+          Rohith Reddy
+        </h1>
+        <p class="mt-1 text-base sm:text-lg font-bold tracking-wide text-sky-400 print:text-slate-900 uppercase font-mono-tech">
+          Technical Architect | Generative AI & SDET Lead
+        </p>
+        <p class="mt-1 text-xs font-semibold text-slate-300 print:text-slate-700">
+          10+ Years Experience · Squad Leadership (10–20 Engineers) · Multi-Agent AI · Python & Cloud Microservices · Quality Engineering
+        </p>
+        <div class="mt-2.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-300 print:text-slate-700">
+          <span>{profile.location}</span>
+          <span>•</span>
+          <a href={`mailto:${profile.email}`} class="font-medium text-sky-300 print:text-slate-950 underline hover:text-sky-200">
+            {profile.email}
+          </a>
+          <span>•</span>
+          <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" class="font-medium text-sky-300 print:text-slate-950 underline hover:text-sky-200">
+            {profile.linkedinLabel}
+          </a>
+          <span>•</span>
+          <span>Call: {profile.rawPhone}</span>
+        </div>
+      </header>
+
+      <!-- Professional Summary -->
+      <section class="mt-6">
+        <h2 class="text-xs font-extrabold tracking-wider text-sky-400 print:text-slate-950 uppercase border-b border-white/10 print:border-slate-300 pb-1 font-mono-tech">
+          Professional Summary
+        </h2>
+        <p class="mt-2.5 text-xs sm:text-sm text-slate-300 print:text-slate-800 leading-normal">
+          Results-driven Technical Architect and Lead SDET with 10+ years of enterprise experience across application architecture, engineering squad leadership, and AI-powered platforms. Proven track record leading cross-functional engineering squads of 10 to 20 developers and QA analysts across full product delivery lifecycles. Expert in architecting multi-agent AI systems, conversational voice agents (Deepgram STT, ElevenLabs TTS), FastMCP tool integrations, and high-performance Python & FastAPI microservices containerized on AWS and Kubernetes. Deep engineering foundation in MEAN stack web architecture (Angular, Node.js, Express, MongoDB) combined with scalable quality engineering frameworks (Playwright, Selenium, Appium, Cucumber BDD) and automated CI/CD release governance.
+        </p>
+      </section>
+
+      <!-- Core Expertise -->
+      <section class="mt-6">
+        <h2 class="text-xs font-extrabold tracking-wider text-sky-400 print:text-slate-950 uppercase border-b border-white/10 print:border-slate-300 pb-1 font-mono-tech">
+          Core Expertise
+        </h2>
+        <div class="mt-2.5 text-xs text-slate-300 print:text-slate-800 space-y-1.5 leading-relaxed">
+          <p><strong class="font-semibold text-white print:text-slate-950">Generative AI & Agentic Systems:</strong> LangChain · LangGraph · FastMCP · Model Context Protocol (MCP) · Deepgram (STT) · ElevenLabs (TTS) · RAG Architectures · Intelligent Document Processing (IDP) · Prompt Engineering</p>
+          <p><strong class="font-semibold text-white print:text-slate-950">Backend, APIs & Cloud:</strong> Python · FastAPI · Microservices Architecture · AWS · Kubernetes · Docker Containers · RESTful APIs · AWS CloudWatch Telemetry</p>
+          <p><strong class="font-semibold text-white print:text-slate-950">Full Stack & Platforms:</strong> MEAN Stack (MongoDB, Express.js, Angular, Node.js) · TypeScript · Core Java · C# · ServiceNow Integrations · Prophet 21 (P21) ERP · Azure DevOps (ADO) · Jira</p>
+          <p><strong class="font-semibold text-white print:text-slate-950">Quality Engineering & SDET:</strong> Playwright · Selenium · Appium · Cucumber (BDD) · SpecFlow · Rest Assured · Flaky Test Analytics · Test Strategy & Release Governance</p>
+          <p><strong class="font-semibold text-white print:text-slate-950">Leadership & DevOps Delivery:</strong> Technical Architecture · Squad Leadership (10–20 Engineers) · Agile Sprint Governance · CI/CD Pipelines · GitHub Actions · Jenkins · SAFe Agile 5 · ISTQB Certified</p>
+        </div>
+      </section>
+
+      <!-- Professional Experience -->
+      <section class="mt-6">
+        <h2 class="text-xs font-extrabold tracking-wider text-sky-400 print:text-slate-950 uppercase border-b border-white/10 print:border-slate-300 pb-1 font-mono-tech">
+          Professional Experience
+        </h2>
+
+        <div class="mt-4 space-y-5">
+          <!-- Role 1 -->
+          <div>
+            <div class="flex flex-wrap items-baseline justify-between gap-1">
+              <div class="flex items-center gap-2">
+                <h3 class="text-sm font-bold text-white print:text-slate-950">
+                  Technical Architect
+                </h3>
+                <span class="inline-flex items-center rounded bg-sky-500/20 print:bg-slate-200 px-1.5 py-0.2 text-[10px] font-semibold text-sky-300 print:text-slate-800">
+                  Led Squad of 5 Engineers
+                </span>
+              </div>
+              <span class="text-xs font-medium text-slate-400 print:text-slate-600">September 2023 — Present</span>
+            </div>
+            <p class="text-xs font-semibold text-sky-300 print:text-indigo-950">
+              Solugenix India Pvt Ltd <span class="font-normal text-slate-400 print:text-slate-600">• Hyderabad, India</span>
+            </p>
+            <ul class="mt-1.5 list-disc pl-4 text-xs text-slate-300 print:text-slate-800 space-y-1">
+              <li>Architect and lead development of enterprise Generative AI applications and autonomous multi-agent systems, driving technical architecture roadmaps and system design spikes.</li>
+              <li>Engineer high-performance asynchronous backend microservices using <strong>Python and FastAPI</strong> for stateful multi-turn conversational reasoning and dynamic tool execution.</li>
+              <li>Design multi-agent workflows using <strong>LangChain and LangGraph</strong> to orchestrate complex customer support and ticket-resolution processes.</li>
+              <li>Build low-latency conversational voice AI agents integrating <strong>Deepgram</strong> (STT) and <strong>ElevenLabs</strong> (TTS) for natural human-like telephony support.</li>
+              <li>Design and implement <strong>FastMCP and Model Context Protocol (MCP)</strong> server integrations to securely interface AI agents with <strong>ServiceNow</strong> ticket workflows and internal RESTful APIs.</li>
+              <li>Architect containerized microservice deployments on <strong>AWS and Kubernetes</strong>, establishing real-time <strong>AWS CloudWatch</strong> telemetry, latency monitoring, and operational observability.</li>
+              <li>Lead and mentor a cross-functional squad of 5 engineers, conducting system architecture reviews, sprint planning, and engineering governance.</li>
+              <li>Build and monitor automated CI/CD pipelines using <strong>GitHub Actions and Jenkins</strong>, streamlining release cadence and test automation.</li>
+            </ul>
+          </div>
+
+          <!-- Role 2 -->
+          <div>
+            <div class="flex flex-wrap items-baseline justify-between gap-1">
+              <div class="flex items-center gap-2">
+                <h3 class="text-sm font-bold text-white print:text-slate-950">
+                  QA Lead
+                </h3>
+                <span class="inline-flex items-center rounded bg-sky-500/20 print:bg-slate-200 px-1.5 py-0.2 text-[10px] font-semibold text-sky-300 print:text-slate-800">
+                  Led 5 QA Analysts
+                </span>
+              </div>
+              <span class="text-xs font-medium text-slate-400 print:text-slate-600">March 2022 — September 2023</span>
+            </div>
+            <p class="text-xs font-semibold text-sky-300 print:text-indigo-950">
+              Deloitte (Rite Software Solutions) <span class="font-normal text-slate-400 print:text-slate-600">• Hyderabad, India</span>
+            </p>
+            <ul class="mt-1.5 list-disc pl-4 text-xs text-slate-300 print:text-slate-800 space-y-1">
+              <li>Led and mentored a team of five QA analysts across web, mobile, and API testing; established test automation strategies, quality procedures, and release gates.</li>
+              <li>Architected and implemented ground-up BDD test automation frameworks using <strong>Cucumber, Java, and Selenium</strong>, standardizing quality coverage across sprints.</li>
+              <li><strong>Accelerated task completion by 60%</strong> through automated regression testing and optimized QA governance on the Sprint client delivery project.</li>
+              <li>Tracked quality metrics, managed the full defect lifecycle, communicated test status to stakeholders, and delivered authoritative QA sign-offs.</li>
+            </ul>
+          </div>
+
+          <!-- Role 3 -->
+          <div>
+            <div class="flex flex-wrap items-baseline justify-between gap-1">
+              <h3 class="text-sm font-bold text-white print:text-slate-950">
+                Senior Quality Engineer
+              </h3>
+              <span class="text-xs font-medium text-slate-400 print:text-slate-600">January 2021 — November 2021</span>
+            </div>
+            <p class="text-xs font-semibold text-sky-300 print:text-indigo-950">
+              MatchMove Pte Ltd <span class="font-normal text-slate-400 print:text-slate-600">• Hyderabad, India</span>
+            </p>
+            <ul class="mt-1.5 list-disc pl-4 text-xs text-slate-300 print:text-slate-800 space-y-1">
+              <li>Owned quality engineering for high-traffic mobile payment wallet <strong>IRCTC Imudra</strong>, validating mission-critical financial transactions and onboarding flows.</li>
+              <li>Maintained and enhanced mobile and web test automation frameworks utilizing <strong>Appium and Selenium</strong>.</li>
+              <li>Executed comprehensive end-to-end regression suites, analyzed edge-case transaction failures, and conducted cross-functional knowledge transfer sessions.</li>
+            </ul>
+          </div>
+
+          <!-- Role 4 -->
+          <div>
+            <div class="flex flex-wrap items-baseline justify-between gap-1">
+              <div class="flex items-center gap-2">
+                <h3 class="text-sm font-bold text-white print:text-slate-950">
+                  Senior Quality Engineer (Acting Lead)
+                </h3>
+                <span class="inline-flex items-center rounded bg-sky-500/20 print:bg-slate-200 px-1.5 py-0.2 text-[10px] font-semibold text-sky-300 print:text-slate-800">
+                  Led 8 QA Engineers
+                </span>
+              </div>
+              <span class="text-xs font-medium text-slate-400 print:text-slate-600">June 2019 — January 2021</span>
+            </div>
+            <p class="text-xs font-semibold text-sky-300 print:text-indigo-950">
+              Aurigo Software Technologies <span class="font-normal text-slate-400 print:text-slate-600">• Bengaluru / Hyderabad, India</span>
+            </p>
+            <ul class="mt-1.5 list-disc pl-4 text-xs text-slate-300 print:text-slate-800 space-y-1">
+              <li>Directed and mentored an engineering squad of eight QA engineers across automated and manual testing streams for the Masterworks Cloud enterprise platform.</li>
+              <li>Supervised sanity, exploratory, and full regression test execution for major cloud releases, delivering zero-critical-defect production milestones.</li>
+              <li>Integrated automated testing suites into <strong>CI/CD build pipelines</strong> for real-time build health monitoring and PR gating.</li>
+              <li>Interfaced with engineering leads and product managers to deliver transparent risk assessments and formal QA sign-offs.</li>
+            </ul>
+          </div>
+
+          <!-- Role 5 -->
+          <div>
+            <div class="flex flex-wrap items-baseline justify-between gap-1">
+              <h3 class="text-sm font-bold text-white print:text-slate-950">
+                Senior QA Analyst
+              </h3>
+              <span class="text-xs font-medium text-slate-400 print:text-slate-600">October 2016 — June 2019</span>
+            </div>
+            <p class="text-xs font-semibold text-sky-300 print:text-indigo-950">
+              Electronic Arts (EA) <span class="font-normal text-slate-400 print:text-slate-600">• Hyderabad, India</span>
+            </p>
+            <ul class="mt-1.5 list-disc pl-4 text-xs text-slate-300 print:text-slate-800 space-y-1">
+              <li>Performed functional, regression, performance, and exploratory testing across flagship mobile gaming titles on diverse iOS and Android hardware configurations.</li>
+              <li>Collaborated with game developers and UX designers to isolate, report, and verify complex defects throughout the development lifecycle.</li>
+            </ul>
+          </div>
+
+          <!-- Role 6 -->
+          <div>
+            <div class="flex flex-wrap items-baseline justify-between gap-1">
+              <h3 class="text-sm font-bold text-white print:text-slate-950">
+                Test Engineer
+              </h3>
+              <span class="text-xs font-medium text-slate-400 print:text-slate-600">September 2014 — September 2016</span>
+            </div>
+            <p class="text-xs font-semibold text-sky-300 print:text-indigo-950">
+              Pole To Win International <span class="font-normal text-slate-400 print:text-slate-600">• Hyderabad, India</span>
+            </p>
+            <ul class="mt-1.5 list-disc pl-4 text-xs text-slate-300 print:text-slate-800 space-y-1">
+              <li>Authored and executed comprehensive test plans, test cases, and test runs for mobile gaming applications.</li>
+              <li>Tracked defects, verified bug resolutions, and provided regular sprint progress updates and quality metrics to stakeholders.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Selected Projects -->
+      <section class="mt-6">
+        <h2 class="text-xs font-extrabold tracking-wider text-sky-400 print:text-slate-950 uppercase border-b border-white/10 print:border-slate-300 pb-1 font-mono-tech">
+          Selected Projects & Case Studies
+        </h2>
+
+        <div class="mt-3.5 space-y-3.5 text-xs text-slate-300 print:text-slate-800">
+          <div>
+            <div class="flex flex-wrap items-baseline justify-between gap-1">
+              <h3 class="font-bold text-white print:text-slate-950">
+                Genix Nova | Multi-Agent AI Platform for Chat & Voice
+              </h3>
+              <span class="text-[11px] font-mono-tech text-sky-400 print:text-slate-700">Python · FastAPI · FastMCP · LangGraph · Deepgram · ElevenLabs · AWS · K8s · ServiceNow</span>
+            </div>
+            <p class="text-slate-400 print:text-slate-700 mt-0.5">Configurable enterprise platform for creating and orchestrating autonomous AI agents across chat and voice workflows.</p>
+            <ul class="list-disc pl-4 mt-1 space-y-0.5">
+              <li>Engineered high-performance Python and FastAPI backend microservices orchestrating multi-turn conversational reasoning with LangGraph.</li>
+              <li>Integrated low-latency voice AI pipeline featuring Deepgram (STT) and ElevenLabs (TTS) for natural telephony support conversations.</li>
+              <li>Built FastMCP server integrations allowing agents to dynamically query ServiceNow tickets and invoke internal enterprise APIs.</li>
+              <li>Deployed containerized agent microservices on AWS and Kubernetes with centralized AWS CloudWatch monitoring and distributed telemetry.</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap items-baseline justify-between gap-1">
+              <h3 class="font-bold text-white print:text-slate-950">
+                Doc-Ex | Multi-Tenant Intelligent Document Processing
+              </h3>
+              <span class="text-[11px] font-mono-tech text-sky-400 print:text-slate-700">Python · OCR Extraction · Prophet 21 (P21) ERP · Batch Pipelines</span>
+            </div>
+            <p class="text-slate-400 print:text-slate-700 mt-0.5">Automated document extraction, validation, and downstream enterprise ERP processing platform.</p>
+            <ul class="list-disc pl-4 mt-1 space-y-0.5">
+              <li>Processed invoices, bank statements, and documents via portal uploads and automated email-based batch ingestion pipelines.</li>
+              <li>Extracted and structured document fields, applied enterprise validation rules, and automated updates directly into Prophet 21 (P21) ERP.</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap items-baseline justify-between gap-1">
+              <h3 class="font-bold text-white print:text-slate-950">
+                Qualit AI | AI Copilot for Quality Engineering
+              </h3>
+              <span class="text-[11px] font-mono-tech text-sky-400 print:text-slate-700">Azure DevOps (ADO) · Jira · Playwright · LLM Risk Intelligence · Flaky Analytics</span>
+            </div>
+            <p class="text-slate-400 print:text-slate-700 mt-0.5">AI-assisted sprint risk intelligence, automated test generation, execution analytics, and release governance.</p>
+            <ul class="list-disc pl-4 mt-1 space-y-0.5">
+              <li>Integrated with ADO and Jira to analyze historical bug patterns, story complexity, and sprint quality risk signals.</li>
+              <li>Generated risk-based test plans, manual test scenarios, and automated Playwright test script boilerplate.</li>
+              <li>Analyzed test execution runs, performed flaky-test root cause analytics with human-in-the-loop (HITL) review, and surfaced release-readiness dashboards.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certifications & Education -->
+      <section class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2 border-t border-white/10 print:border-slate-300">
+        <div>
+          <h2 class="text-xs font-extrabold tracking-wider text-sky-400 print:text-slate-950 uppercase mb-2 font-mono-tech">
+            Certifications
+          </h2>
+          <ul class="text-xs text-slate-300 print:text-slate-800 space-y-1">
+            {
+              certifications.map((cert) => (
+                <li>
+                  <strong class="font-semibold text-white print:text-slate-950">{cert.title}</strong> — {cert.issuer} ({cert.year})
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-xs font-extrabold tracking-wider text-sky-400 print:text-slate-950 uppercase mb-2 font-mono-tech">
+            Education
+          </h2>
+          <p class="text-xs text-slate-300 print:text-slate-800">
+            <strong class="font-semibold text-white print:text-slate-950">{education.degree}</strong>
+            <br />
+            {education.institution} | {education.graduationYear} | GPA: {education.score}
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+</Base>

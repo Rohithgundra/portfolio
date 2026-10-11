@@ -1,0 +1,305 @@
+---
+import "../styles/global.css";
+import { profile } from "../data/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalUrl?: string;
+}
+
+const {
+  title = `${profile.name} — ${profile.role} | Enterprise AI & SDET Leader`,
+  description = "Technical Architect & Lead SDET with 10+ years of experience in enterprise Generative AI systems, multi-agent workflows, intelligent document processing, and AI-assisted quality engineering.",
+  canonicalUrl = Astro.url.href,
+} = Astro.props;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": profile.name,
+  "jobTitle": profile.role,
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Solugenix India Pvt Ltd",
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "NorthEast Christian University",
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Hyderabad",
+    "addressRegion": "Telangana",
+    "addressCountry": "India",
+  },
+  "email": `mailto:${profile.email}`,
+  "telephone": profile.phone,
+  "sameAs": [
+    profile.linkedin,
+  ],
+  "knowsAbout": [
+    "Generative AI",
+    "Multi-Agent Systems",
+    "LangChain",
+    "LangGraph",
+    "Python",
+    "FastAPI",
+    "FastMCP",
+    "Deepgram",
+    "ElevenLabs",
+    "AWS",
+    "Kubernetes",
+    "MEAN Stack",
+    "Retrieval-Augmented Generation (RAG)",
+    "Model Context Protocol (MCP)",
+    "Intelligent Document Processing (IDP)",
+    "Quality Engineering",
+    "SDET Architecture",
+    "Playwright",
+    "Selenium",
+    "Appium",
+    "BDD Automation",
+    "Cucumber",
+    "ServiceNow",
+    "CI/CD Pipelines",
+    "GitHub Actions",
+  ],
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "ISTQB Foundation Level",
+      "credentialCategory": "certification",
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "SAFe Agile 5 Practitioner",
+      "credentialCategory": "certification",
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="author" content={profile.name} />
+    <meta name="keywords" content="Rohith Reddy, Technical Architect, Generative AI, LangChain, LangGraph, RAG, Lead SDET, Quality Engineering, ServiceNow, MCP, Playwright, Hyderabad, Software Architect" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={`${profile.name} Portfolio`} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <title>{title}</title>
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg`} type="image/svg+xml" />
+
+    <!-- Performance: Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Structured Data (JSON-LD) for SEO & Recruiter Indexing -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
+    <script is:inline>
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
+  <body class="bg-tech-grid min-h-screen antialiased selection:bg-sky-500/30 selection:text-white">
+    <a
+      href="#content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-sky-400 focus:px-4 focus:py-2 focus:text-slate-950 focus:font-semibold focus:shadow-lg focus:outline-none"
+    >
+      Skip to main content
+    </a>
+
+    <!-- Toast Notification for 1-click clipboard actions -->
+    <div
+      id="copy-toast"
+      role="status"
+      aria-live="polite"
+      class="pointer-events-none fixed bottom-6 right-6 z-50 flex translate-y-10 items-center gap-2 rounded-xl border border-sky-400/30 bg-slate-900/95 px-4 py-3 text-sm text-sky-200 shadow-2xl backdrop-blur-md opacity-0 transition-all duration-300"
+    >
+      <svg class="h-4 w-4 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
+      <span id="copy-toast-msg">Copied to clipboard</span>
+    </div>
+
+    <slot />
+
+    <script>
+      // Scroll reveal observer
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (!reduceMotion) {
+        const revealables = document.querySelectorAll<HTMLElement>("[data-reveal]");
+        revealables.forEach((element) => {
+          const delay = element.dataset.revealDelay;
+          if (delay) element.style.setProperty("--reveal-delay", `${delay}ms`);
+        });
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: "300px 0px 300px 0px", threshold: 0 }
+        );
+
+        revealables.forEach((element) => observer.observe(element));
+
+        // Fallback safety timeout so no content is ever stuck hidden
+        setTimeout(() => {
+          document.querySelectorAll<HTMLElement>("[data-reveal]").forEach((el) => {
+            el.classList.add("is-visible");
+          });
+        }, 350);
+      } else {
+        document
+          .querySelectorAll<HTMLElement>("[data-reveal]")
+          .forEach((element) => element.classList.add("is-visible"));
+      }
+
+      // Animated count-up for executive stats
+      const counters = document.querySelectorAll<HTMLElement>("[data-count]");
+      const animateCount = (element: HTMLElement) => {
+        const raw = element.dataset.count ?? element.textContent ?? "";
+        const match = raw.match(/^(\d+)(.*)$/);
+        if (!match) return;
+        const target = Number(match[1]);
+        const suffix = match[2];
+        if (reduceMotion) {
+          element.textContent = `${target}${suffix}`;
+          return;
+        }
+        const duration = 1000;
+        const start = performance.now();
+        const step = (now: number) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          element.textContent = `${Math.round(target * eased)}${suffix}`;
+          if (progress < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      };
+
+      if (counters.length) {
+        const counterObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                animateCount(entry.target as HTMLElement);
+                counterObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.3 }
+        );
+        counters.forEach((counter) => counterObserver.observe(counter));
+      }
+
+      // Active navigation highlighting
+      const navLinks = Array.from(
+        document.querySelectorAll<HTMLAnchorElement>('nav a[href^="#"]')
+      );
+      const sections = navLinks
+        .map((link) => {
+          const id = link.getAttribute("href");
+          return id && id !== "#" ? document.querySelector<HTMLElement>(id) : null;
+        })
+        .filter((sec): sec is HTMLElement => Boolean(sec));
+
+      if (sections.length) {
+        const sectionObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const active = navLinks.find(
+                  (link) => link.getAttribute("href") === `#${entry.target.id}`
+                );
+                if (active) {
+                  navLinks.forEach((link) => link.classList.remove("text-sky-400", "font-semibold"));
+                  active.classList.add("text-sky-400", "font-semibold");
+                }
+              }
+            });
+          },
+          { rootMargin: "-40% 0px -40% 0px" }
+        );
+        sections.forEach((sec) => sectionObserver.observe(sec));
+      }
+
+      // Global copy-to-clipboard handler
+      const toast = document.getElementById("copy-toast");
+      const toastMsg = document.getElementById("copy-toast-msg");
+      let toastTimer: number | undefined;
+
+      window.copyToClipboard = (text: string, label: string = "Copied to clipboard") => {
+        const showToast = () => {
+          if (!toast || !toastMsg) return;
+          toastMsg.textContent = label;
+          toast.classList.remove("opacity-0", "translate-y-10");
+          toast.classList.add("opacity-100", "translate-y-0");
+
+          if (toastTimer) clearTimeout(toastTimer);
+          toastTimer = window.setTimeout(() => {
+            toast.classList.remove("opacity-100", "translate-y-0");
+            toast.classList.add("opacity-0", "translate-y-10");
+          }, 2400);
+        };
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text)
+            .then(showToast)
+            .catch(() => {
+              try {
+                const input = document.createElement("input");
+                input.value = text;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand("copy");
+                document.body.removeChild(input);
+              } catch (_) {}
+              showToast();
+            });
+        } else {
+          showToast();
+        }
+      };
+
+      // Framer cursor spotlight tracker
+      const initSpotlights = () => {
+        document.querySelectorAll<HTMLElement>('.bento-card').forEach((card) => {
+          card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+            card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+          });
+        });
+      };
+      initSpotlights();
+      window.addEventListener('load', initSpotlights);
+    </script>
+  </body>
+</html>
