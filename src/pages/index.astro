@@ -6,12 +6,16 @@ import Hero from "../components/Hero.astro";
 import Nav from "../components/Nav.astro";
 import Projects from "../components/Projects.astro";
 import Stack from "../components/Stack.astro";
+import HeroScene from "../components/islands/HeroScene";
 import Base from "../layouts/Base.astro";
 ---
 
 <Base>
   <Nav />
-  <main id="content" class="relative">
+  <div class="hero-side-scene pointer-events-none fixed top-1/2 z-0 hidden -translate-y-1/2 overflow-hidden" aria-hidden="true">
+    <HeroScene client:idle />
+  </div>
+  <main id="content" class="relative z-10">
     <Hero />
     <Projects />
     <Experience />

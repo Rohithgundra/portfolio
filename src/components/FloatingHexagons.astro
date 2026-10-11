@@ -1,0 +1,39 @@
+---
+// Decorative floating hexagonal sprites (Aurora Borealis visual identity).
+// Purely ambient: fixed layer behind content, disabled with the global reduced-motion rule.
+
+interface HexSpec {
+  position: string;
+  size: number;
+  color: string;
+  duration: string;
+  delay: string;
+}
+
+const hexes: HexSpec[] = [
+  { position: "top: 14%; left: 5%;", size: 46, color: "text-emerald-400/25", duration: "18s", delay: "0s" },
+  { position: "top: 24%; right: 7%;", size: 34, color: "text-cyan-400/20", duration: "22s", delay: "3s" },
+  { position: "top: 66%; left: 9%;", size: 28, color: "text-teal-400/20", duration: "26s", delay: "1.5s" },
+  { position: "top: 78%; right: 11%;", size: 52, color: "text-emerald-400/15", duration: "20s", delay: "5s" },
+  { position: "top: 46%; right: 24%;", size: 22, color: "text-cyan-400/15", duration: "24s", delay: "7s" },
+];
+---
+
+<div class="aurora-field" aria-hidden="true">
+  {
+    hexes.map((hex) => (
+      <svg
+        class={`aurora-hex ${hex.color}`}
+        style={`${hex.position} width: ${hex.size}px; height: ${hex.size}px; --hex-duration: ${hex.duration}; --hex-delay: ${hex.delay};`}
+        viewBox="0 0 100 100"
+        fill="none"
+      >
+        <polygon
+          points="50,3 93.5,26.5 93.5,73.5 50,97 6.5,73.5 6.5,26.5"
+          stroke="currentColor"
+          stroke-width="4"
+        />
+      </svg>
+    ))
+  }
+</div>

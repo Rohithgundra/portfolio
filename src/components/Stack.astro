@@ -1,5 +1,6 @@
 ---
 import { skillCategories } from "../data/site";
+import { techLogos } from "../data/techLogos";
 ---
 
 <section id="skills" class="relative border-t border-white/[0.08] py-20 lg:py-28">
@@ -10,7 +11,7 @@ import { skillCategories } from "../data/site";
         <span class="h-1.5 w-1.5 rounded-full bg-sky-400"></span>
         Core Competencies & Tech Stack
       </div>
-      <h2 class="font-display mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
+      <h2 class="font-display mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
         <span class="text-gradient-framer">Architectural toolkit</span> and engineering stacks.
       </h2>
       <p class="mt-4 text-sm sm:text-base text-slate-400 leading-relaxed">
@@ -43,20 +44,40 @@ import { skillCategories } from "../data/site";
                 </span>
               </div>
 
-              <!-- Skills List -->
+              <!-- Skills List: brand logo chips where a mark exists, text pills otherwise -->
               <div class="mt-6 flex flex-wrap gap-2">
-                {cat.skills.map((skill) => (
-                  <span
-                    class={`rounded-lg px-3 py-1.5 text-xs font-mono-tech transition-all ${
-                      skill.highlight
-                        ? "border border-sky-400/40 bg-sky-500/15 text-sky-200 font-semibold shadow-sm hover:border-sky-400 hover:bg-sky-500/25"
-                        : "border border-white/[0.06] bg-white/[0.02] text-slate-300 hover:border-white/20 hover:text-white"
-                    }`}
-                  >
-                    <span class={`mr-1.5 inline-block h-1.5 w-1.5 rounded-full ${skill.highlight ? "bg-sky-400" : "bg-slate-500"}`}></span>
-                    {skill.name}
-                  </span>
-                ))}
+                {
+                  cat.skills.map((skill) => {
+                    const logo = techLogos[skill.name];
+                    const chipCls = skill.highlight
+                      ? "border border-sky-400/40 bg-sky-500/15 text-sky-200 shadow-sm hover:border-sky-400 hover:bg-sky-500/25"
+                      : "border border-white/[0.06] bg-white/[0.02] text-slate-300 hover:border-white/20 hover:text-white";
+
+                    return logo ? (
+                      <span
+                        class={`inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-mono-tech transition-all ${chipCls}`}
+                      >
+                        <svg
+                          viewBox={logo.viewBox}
+                          class="h-[18px] w-[18px] shrink-0"
+                          fill="currentColor"
+                          aria-hidden="true"
+                          focusable="false"
+                        >
+                          {logo.paths.map((d) => <path d={d} />)}
+                        </svg>
+                        {skill.name}
+                      </span>
+                    ) : (
+                      <span
+                        class={`rounded-lg px-3 py-1.5 text-xs font-mono-tech transition-all ${chipCls}`}
+                      >
+                        <span class={`mr-1.5 inline-block h-1.5 w-1.5 rounded-full ${skill.highlight ? "bg-sky-400" : "bg-slate-500"}`}></span>
+                        {skill.name}
+                      </span>
+                    );
+                  })
+                }
               </div>
             </div>
 

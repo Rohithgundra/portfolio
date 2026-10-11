@@ -121,6 +121,7 @@ export const architecturalPractices = [
 ];
 
 export const projects: Project[] = [
+
   {
     id: "genix-nova",
     name: "Genix Nova",
@@ -217,35 +218,6 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: "sprint-deloitte",
-    name: "Sprint Delivery BDD Automation",
-    tagline: "Enterprise BDD Automation Framework from the Ground Up",
-    category: "quality-ai",
-    categoryLabel: "Enterprise Automation",
-    domain: "Enterprise Telecommunications & Cloud",
-    org: "Deloitte (Rite Software Solutions)",
-    brief:
-      "Enterprise test automation framework engineered from scratch to accelerate quality delivery cycles and eliminate release bottlenecks.",
-    role: "QA Lead",
-    focus: "Framework architecture, BDD implementation, regression test governance, and team leadership.",
-    metrics: "Accelerated task completion by 60% through automation",
-    architecture: [
-      "Engineered a scalable BDD test automation framework from scratch across web and mobile platforms.",
-      "Implemented comprehensive automated regression test suites reducing manual validation turnaround.",
-      "Formulated rigorous test plans, procedures, and standardized defect-tracking protocols.",
-      "Established real-time test metric reporting for executive stakeholders and QA sign-off gates.",
-    ],
-    workflowSteps: [
-      { step: "01", title: "BDD Feature Modeling", desc: "Translated user stories into structured Cucumber feature scenarios." },
-      { step: "02", title: "Automated Suite", desc: "Executed cross-platform web and mobile automation suites across regression runs." },
-      { step: "03", title: "Metrics & Sign-off", desc: "Automated test status reporting for stakeholder review and final QA sign-off." },
-    ],
-    delivers:
-      "Accelerated delivery task completion by 60%, establishing reliable regression confidence and standardized BDD test practices across the organization.",
-    tags: ["BDD", "Cucumber", "Web & Mobile Automation", "Test Strategy", "Stakeholder Reporting"],
-    featured: false,
-  },
-  {
     id: "irctc-imudra",
     name: "IRCTC Imudra FinTech QA",
     tagline: "Mobile & Web End-to-End Test Automation for High-Scale FinTech",
@@ -272,6 +244,35 @@ export const projects: Project[] = [
     delivers:
       "Ensured zero-defect transaction integrity and high usability across a massive public-facing mobile wallet platform.",
     tags: ["Appium", "Android Automation", "Selenium", "FinTech", "E2E Testing", "Defect Lifecycle"],
+    featured: false,
+  },
+  {
+    id: "sprint-deloitte",
+    name: "Sprint Delivery BDD Automation",
+    tagline: "Enterprise BDD Automation Framework from the Ground Up",
+    category: "quality-ai",
+    categoryLabel: "Enterprise Automation",
+    domain: "Enterprise Telecommunications & Cloud",
+    org: "Deloitte (Rite Software Solutions)",
+    brief:
+      "Enterprise test automation framework engineered from scratch to accelerate quality delivery cycles and eliminate release bottlenecks.",
+    role: "QA Lead",
+    focus: "Framework architecture, BDD implementation, regression test governance, and team leadership.",
+    metrics: "Accelerated task completion by 60% through automation",
+    architecture: [
+      "Engineered a scalable BDD test automation framework from scratch across web and mobile platforms.",
+      "Implemented comprehensive automated regression test suites reducing manual validation turnaround.",
+      "Formulated rigorous test plans, procedures, and standardized defect-tracking protocols.",
+      "Established real-time test metric reporting for executive stakeholders and QA sign-off gates.",
+    ],
+    workflowSteps: [
+      { step: "01", title: "BDD Feature Modeling", desc: "Translated user stories into structured Cucumber feature scenarios." },
+      { step: "02", title: "Automated Suite", desc: "Executed cross-platform web and mobile automation suites across regression runs." },
+      { step: "03", title: "Metrics & Sign-off", desc: "Automated test status reporting for stakeholder review and final QA sign-off." },
+    ],
+    delivers:
+      "Accelerated delivery task completion by 60%, establishing reliable regression confidence and standardized BDD test practices across the organization.",
+    tags: ["BDD", "Cucumber", "Web & Mobile Automation", "Test Strategy", "Stakeholder Reporting"],
     featured: false,
   },
   {
