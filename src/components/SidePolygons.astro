@@ -1,0 +1,26 @@
+---
+const accents = [
+  { side: "left", top: "17%", size: 64, duration: "15s", delay: "-4s", tone: "emerald" },
+  { side: "right", top: "11%", size: 24, duration: "16s", delay: "-6s", tone: "cyan" },
+  { side: "right", top: "19%", size: 58, duration: "12s", delay: "-8s", tone: "cyan" },
+  { side: "left", top: "43%", size: 56, duration: "13s", delay: "-9s", tone: "cyan" },
+  { side: "right", top: "54%", size: 72, duration: "18s", delay: "-3s", tone: "emerald" },
+  { side: "left", top: "69%", size: 86, duration: "17s", delay: "-11s", tone: "cyan" },
+  { side: "right", top: "78%", size: 46, duration: "14s", delay: "-2s", tone: "emerald" },
+  { side: "left", top: "88%", size: 24, duration: "11s", delay: "-7s", tone: "emerald" },
+];
+---
+
+<div class="ambient-polygon-field" aria-hidden="true">
+  {
+    accents.map((accent) => (
+      <svg
+        class={`ambient-polygon ambient-polygon-${accent.side} ambient-polygon-${accent.tone}`}
+        style={`--polygon-top: ${accent.top}; --polygon-size: ${accent.size}px; --polygon-duration: ${accent.duration}; --polygon-delay: ${accent.delay};`}
+        viewBox="0 0 100 100"
+      >
+        <polygon points="50,3 93.5,26.5 93.5,73.5 50,97 6.5,73.5 6.5,26.5" />
+      </svg>
+    ))
+  }
+</div>

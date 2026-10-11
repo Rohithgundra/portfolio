@@ -88,6 +88,59 @@ body {
   }
 }
 
+.hero-side-scene-right {
+  left: auto;
+  right: 0;
+}
+
+.ambient-polygon-field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: none;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+@media (min-width: 88rem) {
+  .ambient-polygon-field {
+    display: block;
+  }
+}
+
+.ambient-polygon {
+  position: absolute;
+  top: var(--polygon-top);
+  width: var(--polygon-size);
+  height: var(--polygon-size);
+  fill: none;
+  stroke-width: 4;
+  opacity: 0.68;
+  filter: drop-shadow(0 0 5px currentColor);
+  animation: ambient-polygon-drift var(--polygon-duration) ease-in-out var(--polygon-delay) infinite alternate;
+}
+
+.ambient-polygon-left {
+  left: clamp(0.75rem, calc((100vw - 80rem) / 4 - 0.5rem), 4rem);
+}
+
+.ambient-polygon-right {
+  right: clamp(0.75rem, calc((100vw - 80rem) / 4 - 0.5rem), 4rem);
+}
+
+.ambient-polygon-emerald {
+  stroke: #34d399;
+}
+
+.ambient-polygon-cyan {
+  stroke: #22d3ee;
+}
+
+@keyframes ambient-polygon-drift {
+  from { transform: translate3d(0, 0, 0) rotate(-12deg); }
+  to { transform: translate3d(0, -14px, 0) rotate(12deg); }
+}
+
 /* Restrained surfaces with a single emerald accent. */
 .bento-card {
   position: relative;
