@@ -4,7 +4,6 @@ import "@fontsource-variable/geist-mono";
 import "../styles/global.css";
 import { profile, getAssetUrl } from "../data/site";
 import AuroraBackground from "../components/AuroraBackground.astro";
-import FloatingHexagons from "../components/FloatingHexagons.astro";
 
 interface Props {
   title?: string;
@@ -146,9 +145,8 @@ const schemaData = {
       <span id="copy-toast-msg">Copied to clipboard</span>
     </div>
 
-    <!-- Aurora Borealis ambient layers (behind all content) -->
+    <!-- Subtle ambient lighting behind the content -->
     <AuroraBackground />
-    <FloatingHexagons />
 
     <slot />
 
