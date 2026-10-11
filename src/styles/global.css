@@ -4,26 +4,41 @@
   --color-white: #ffffff;
   --color-black: #000000;
 
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-display: "Plus Jakarta Sans", "Inter", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  /* ── Aurora Borealis palette ─────────────────────────────────
+     Built-in sky and indigo scales are remapped to the aurora trio
+     so every existing sky-400 / bg-sky-500 style utility rethemes
+     automatically. */
+  --color-sky-200: #99f6e4; /* teal-200 */
+  --color-sky-300: #6ee7b7; /* emerald-300 */
+  --color-sky-400: #22d3ee; /* cyan-400 */
+  --color-sky-500: #10b981; /* emerald-500 */
+  --color-sky-600: #059669; /* emerald-600 */
+  --color-indigo-950: #070a18; /* deep aurora panel */
 
-  --color-bg-base: #060913;
-  --color-bg-surface: #0b1120;
-  --color-bg-card: #0d1527;
-  --color-bg-card-hover: #131e38;
+  --color-aurora-emerald: #10b981;
+  --color-aurora-teal: #14b8a6;
+  --color-aurora-cyan: #06b6d4;
+
+  --font-sans: "Geist Variable", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Geist Variable", "Inter", sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --color-bg-base: #050510;
+  --color-bg-surface: #080c1a;
+  --color-bg-card: #0b0f22;
+  --color-bg-card-hover: #101632;
 
   --color-border-subtle: rgba(255, 255, 255, 0.08);
   --color-border-medium: rgba(255, 255, 255, 0.16);
-  --color-border-active: rgba(56, 189, 248, 0.45);
+  --color-border-active: rgba(52, 211, 153, 0.45);
 
   --color-text-main: #f8fafc;
   --color-text-muted: #94a3b8;
   --color-text-dim: #64748b;
 
-  --color-accent-cyan: #38bdf8;
-  --color-accent-blue: #60a5fa;
-  --color-accent-indigo: #818cf8;
+  --color-accent-cyan: #22d3ee;
+  --color-accent-blue: #14b8a6;
+  --color-accent-indigo: #06b6d4;
   --color-accent-emerald: #34d399;
   --color-accent-amber: #fbbf24;
 }
@@ -34,7 +49,7 @@ html {
 }
 
 body {
-  background-color: #060913;
+  background-color: #050510;
   color: #f8fafc;
   font-family: var(--font-sans);
   text-rendering: optimizeLegibility;
@@ -42,14 +57,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Framer-style high-tech dot matrix & ambient lighting */
+/* Aurora Borealis dot matrix & ambient lighting */
 .bg-tech-grid {
-  background-color: #060913;
+  background-color: #050510;
   background-image:
-    radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
-    radial-gradient(at 10% 10%, rgba(56, 189, 248, 0.09) 0px, transparent 50%),
-    radial-gradient(at 90% 20%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
-    radial-gradient(at 50% 80%, rgba(52, 211, 153, 0.05) 0px, transparent 60%);
+    radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    radial-gradient(at 12% 8%, rgba(16, 185, 129, 0.1) 0px, transparent 50%),
+    radial-gradient(at 88% 22%, rgba(6, 182, 212, 0.09) 0px, transparent 50%),
+    radial-gradient(at 50% 85%, rgba(20, 184, 166, 0.07) 0px, transparent 60%);
   background-size: 24px 24px, 100% 100%, 100% 100%, 100% 100%;
   background-attachment: fixed;
 }
@@ -62,15 +77,17 @@ body {
   font-family: var(--font-mono);
 }
 
-/* Signature Framer Bento Card with cursor spotlight */
+/* Aurora Borealis frosted glassmorphic card with emerald borders */
 .bento-card {
   position: relative;
-  background: rgba(13, 21, 39, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(160deg, rgba(16, 185, 129, 0.06), rgba(5, 5, 16, 0) 42%),
+    rgba(5, 5, 16, 0.62);
+  border: 1px solid rgba(16, 185, 129, 0.18);
   border-radius: 1.25rem;
   overflow: hidden;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
 }
 
@@ -78,7 +95,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(500px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px), rgba(56, 189, 248, 0.12), transparent 45%);
+  background: radial-gradient(500px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px), rgba(16, 185, 129, 0.14), transparent 45%);
   pointer-events: none;
   border-radius: inherit;
   opacity: 0;
@@ -87,8 +104,8 @@ body {
 }
 
 .bento-card:hover {
-  border-color: rgba(56, 189, 248, 0.35);
-  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.6), 0 0 24px -6px rgba(56, 189, 248, 0.15);
+  border-color: rgba(16, 185, 129, 0.42);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.65), 0 0 28px -6px rgba(16, 185, 129, 0.22);
 }
 
 .bento-card:hover::before {
@@ -103,15 +120,93 @@ body {
 
 /* Gradient shimmer text */
 .text-gradient-framer {
-  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 45%, #a7f3d0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-cyan {
-  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  background: linear-gradient(135deg, #34d399 0%, #2dd4bf 50%, #22d3ee 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* ── Aurora Borealis ambient field (drifting gradient waves) ── */
+.aurora-field {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+
+.aurora-blob-emerald {
+  top: -16%;
+  left: -10%;
+  width: 55vw;
+  height: 52vh;
+  background: radial-gradient(circle at center, rgba(16, 185, 129, 0.5) 0%, transparent 68%);
+  opacity: 0.5;
+  animation: aurora-drift-a 26s ease-in-out infinite alternate;
+}
+
+.aurora-blob-teal {
+  top: 10%;
+  right: -12%;
+  width: 50vw;
+  height: 48vh;
+  background: radial-gradient(circle at center, rgba(20, 184, 166, 0.42) 0%, transparent 68%);
+  opacity: 0.45;
+  animation: aurora-drift-b 32s ease-in-out infinite alternate;
+}
+
+.aurora-blob-cyan {
+  bottom: -20%;
+  left: 22%;
+  width: 58vw;
+  height: 46vh;
+  background: radial-gradient(circle at center, rgba(6, 182, 212, 0.38) 0%, transparent 68%);
+  opacity: 0.42;
+  animation: aurora-drift-c 38s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-drift-a {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(9vw, 7vh, 0) scale(1.18); }
+}
+
+@keyframes aurora-drift-b {
+  0% { transform: translate3d(0, 0, 0) scale(1.1); }
+  100% { transform: translate3d(-8vw, 10vh, 0) scale(0.95); }
+}
+
+@keyframes aurora-drift-c {
+  0% { transform: translate3d(0, 0, 0) scale(0.95); }
+  100% { transform: translate3d(6vw, -8vh, 0) scale(1.2); }
+}
+
+/* ── Floating hexagonal sprites ── */
+.hex-clip {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+@keyframes hex-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(8deg); }
+}
+
+.aurora-hex {
+  position: absolute;
+  animation: hex-float var(--hex-duration, 16s) ease-in-out infinite;
+  animation-delay: var(--hex-delay, 0s);
 }
 
 /* Voice AI waveform bars animation */
@@ -158,12 +253,12 @@ html.js [data-reveal].is-visible {
 }
 
 ::selection {
-  background: rgba(56, 189, 248, 0.3);
+  background: rgba(16, 185, 129, 0.3);
   color: #ffffff;
 }
 
 :focus-visible {
-  outline: 2px solid #38bdf8;
+  outline: 2px solid #34d399;
   outline-offset: 3px;
 }
 

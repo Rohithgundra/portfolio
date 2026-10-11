@@ -14,7 +14,7 @@ const corePillTags = [
 <section id="top" class="relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24">
   <!-- Subtle ambient central light glow -->
   <div class="pointer-events-none absolute top-12 left-1/2 -z-10 h-96 w-full -translate-x-1/2 max-w-5xl opacity-25 blur-3xl">
-    <div class="h-full w-full bg-gradient-to-r from-sky-500/30 via-indigo-500/25 to-emerald-500/20"></div>
+    <div class="h-full w-full bg-gradient-to-r from-emerald-500/30 via-teal-500/25 to-cyan-500/20"></div>
   </div>
 
   <div class="mx-auto max-w-7xl px-5 sm:px-8">
@@ -118,28 +118,37 @@ const corePillTags = [
 
       <!-- Cell 2: Candidate Profile Card (Professional Identity & Executive Focus) -->
       <div data-reveal data-reveal-delay="150" class="bento-card flex flex-col justify-between p-6 sm:p-7">
-        <!-- Portrait Frame -->
-        <div class="relative overflow-hidden rounded-xl border border-white/10 bg-slate-950">
-          <img
-            src={getAssetUrl("portrait.jpg")}
-            alt="Portrait of Rohith Reddy — Technical Architect"
-            width="961"
-            height="1024"
-            class="aspect-[4/3.8] w-full object-cover object-[center_18%] filter saturate-[1.05] transition-transform duration-500 hover:scale-105"
-            loading="eager"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+        <!-- Hexagonal Tech Avatar (Aurora Borealis) -->
+        <div class="relative flex justify-center px-2 pt-2">
+          <!-- Outer aura glow -->
+          <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(16,185,129,0.18),transparent_65%)] blur-2xl"></div>
 
-          <!-- Bottom Pill on Image -->
-          <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between rounded-lg border border-white/10 bg-slate-900/90 p-2.5 backdrop-blur-md">
-            <div>
-              <p class="font-display text-xs font-bold text-white">Rohith Reddy</p>
-              <p class="font-mono-tech text-[10px] text-sky-400">Technical Architect · Solugenix</p>
+          <div class="relative aspect-square w-full max-w-[260px]">
+            <!-- Emerald → teal → cyan hex ring -->
+            <div class="hex-clip absolute inset-0 bg-gradient-to-br from-emerald-400 via-teal-400 to-cyan-400"></div>
+            <!-- Portrait, hex-cropped -->
+            <div class="hex-clip absolute inset-[3px] overflow-hidden">
+              <img
+                src={getAssetUrl("portrait.jpg")}
+                alt="Portrait of Rohith Reddy — Technical Architect"
+                width="961"
+                height="1024"
+                class="h-full w-full object-cover object-[center_18%] filter saturate-[1.05] transition-transform duration-500 hover:scale-[1.04]"
+                loading="eager"
+              />
             </div>
-            <span class="rounded bg-emerald-500/20 px-2 py-0.5 text-[10px] font-mono-tech text-emerald-300 border border-emerald-400/30">
-              Hyderabad, IN
-            </span>
           </div>
+        </div>
+
+        <!-- Identity Pill -->
+        <div class="mt-4 flex items-center justify-between rounded-lg border border-emerald-400/25 bg-slate-900/90 p-2.5 backdrop-blur-md">
+          <div>
+            <p class="font-display text-xs font-bold text-white">Rohith Reddy</p>
+            <p class="font-mono-tech text-[10px] text-sky-400">Technical Architect · Solugenix</p>
+          </div>
+          <span class="rounded bg-emerald-500/20 px-2 py-0.5 text-[10px] font-mono-tech text-emerald-300 border border-emerald-400/30">
+            Hyderabad, IN
+          </span>
         </div>
 
         <!-- Executive Candidate Details (No project misplacement) -->
