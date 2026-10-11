@@ -41,6 +41,26 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Verify GitHub Pages is enabled
+        run: |
+          status=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "Authorization: Bearer ${{ github.token }}" \
+            -H "Accept: application/vnd.github+json" \
+            "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/pages")
+
+          case "$status" in
+            200)
+              echo "GitHub Pages is enabled."
+              ;;
+            404)
+              echo "::error title=GitHub Pages is not enabled::Enable Pages at ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/settings/pages and set Source to \"GitHub Actions\", then re-run this workflow."
+              exit 1
+              ;;
+            *)
+              echo "::warning title=Could not verify Pages configuration::The Pages API returned HTTP ${status}. Continuing; the deploy step will fail if Pages is not enabled."
+              ;;
+          esac
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
