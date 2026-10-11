@@ -121,6 +121,7 @@ export const architecturalPractices = [
 ];
 
 export const projects: Project[] = [
+
   {
     id: "genix-nova",
     name: "Genix Nova",
@@ -151,37 +152,6 @@ export const projects: Project[] = [
     delivers:
       "Enterprise support operations can deploy custom chat or voice agents, connect them directly to ServiceNow tickets and verified knowledge bases, and monitor complete operations in real time.",
     tags: ["LangGraph", "Python", "FastAPI", "FastMCP", "Deepgram", "ElevenLabs", "AWS", "Kubernetes", "ServiceNow", "CloudWatch"],
-    featured: true,
-  },
-  {
-    id: "doc-ex",
-    name: "Doc-Ex",
-    tagline: "Multi-Tenant Intelligent Document Processing",
-    category: "document-ai",
-    categoryLabel: "Document Intelligence",
-    domain: "FinTech & Business Operations",
-    org: "Multi-Tenant Platform",
-    brief:
-      "An automated document extraction, validation, and downstream enterprise business processing platform.",
-    role: "Platform Architect",
-    focus: "Batch ingestion pipelines, LLM-based field extraction, deterministic validation, and ERP integration.",
-    metrics: "End-to-end ingestion to Prophet 21 (P21) ERP automation",
-    architecture: [
-      "Multi-tenant ingestion layer handling diverse document types including invoices and bank statements.",
-      "Flexible ingestion mechanisms supporting scheduled email batches and on-demand manual uploads.",
-      "Structured field extraction converting unstructured scanned documents into validated JSON payloads.",
-      "Strict data validation engine ensuring mathematical consistency, vendor matching, and field-level sanity.",
-      "Direct ERP integration updating records in Prophet 21 (P21) ERP system without manual data entry.",
-    ],
-    workflowSteps: [
-      { step: "01", title: "Ingestion", desc: "Scheduled email ingestion service and portal uploads collect invoices & bank statements." },
-      { step: "02", title: "Intelligent Extraction", desc: "Document processing pipelines extract line items, amounts, tax, and vendor data." },
-      { step: "03", title: "Field Validation", desc: "Deterministic business rules validate totals, line arithmetic, and account references." },
-      { step: "04", title: "ERP Handoff", desc: "Clean, verified data automatically synchronizes with the Prophet 21 (P21) ERP system." },
-    ],
-    delivers:
-      "Transforms unstructured, disparate financial documents into pristine, verified transactional data ready for downstream ERP consumption with zero manual transcription errors.",
-    tags: ["Document AI", "Multi-Tenant", "Batch Ingestion", "Field Validation", "P21 ERP", "ETL Pipelines"],
     featured: true,
   },
   {
@@ -217,33 +187,35 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: "sprint-deloitte",
-    name: "Sprint Delivery BDD Automation",
-    tagline: "Enterprise BDD Automation Framework from the Ground Up",
-    category: "quality-ai",
-    categoryLabel: "Enterprise Automation",
-    domain: "Enterprise Telecommunications & Cloud",
-    org: "Deloitte (Rite Software Solutions)",
+    id: "doc-ex",
+    name: "Doc-Ex",
+    tagline: "Multi-Tenant Intelligent Document Processing",
+    category: "document-ai",
+    categoryLabel: "Document Intelligence",
+    domain: "FinTech & Business Operations",
+    org: "Multi-Tenant Platform",
     brief:
-      "Enterprise test automation framework engineered from scratch to accelerate quality delivery cycles and eliminate release bottlenecks.",
-    role: "QA Lead",
-    focus: "Framework architecture, BDD implementation, regression test governance, and team leadership.",
-    metrics: "Accelerated task completion by 60% through automation",
+      "An automated document extraction, validation, and downstream enterprise business processing platform.",
+    role: "Platform Architect",
+    focus: "Batch ingestion pipelines, LLM-based field extraction, deterministic validation, and ERP integration.",
+    metrics: "End-to-end ingestion to Prophet 21 (P21) ERP automation",
     architecture: [
-      "Engineered a scalable BDD test automation framework from scratch across web and mobile platforms.",
-      "Implemented comprehensive automated regression test suites reducing manual validation turnaround.",
-      "Formulated rigorous test plans, procedures, and standardized defect-tracking protocols.",
-      "Established real-time test metric reporting for executive stakeholders and QA sign-off gates.",
+      "Multi-tenant ingestion layer handling diverse document types including invoices and bank statements.",
+      "Flexible ingestion mechanisms supporting scheduled email batches and on-demand manual uploads.",
+      "Structured field extraction converting unstructured scanned documents into validated JSON payloads.",
+      "Strict data validation engine ensuring mathematical consistency, vendor matching, and field-level sanity.",
+      "Direct ERP integration updating records in Prophet 21 (P21) ERP system without manual data entry.",
     ],
     workflowSteps: [
-      { step: "01", title: "BDD Feature Modeling", desc: "Translated user stories into structured Cucumber feature scenarios." },
-      { step: "02", title: "Automated Suite", desc: "Executed cross-platform web and mobile automation suites across regression runs." },
-      { step: "03", title: "Metrics & Sign-off", desc: "Automated test status reporting for stakeholder review and final QA sign-off." },
+      { step: "01", title: "Ingestion", desc: "Scheduled email ingestion service and portal uploads collect invoices & bank statements." },
+      { step: "02", title: "Intelligent Extraction", desc: "Document processing pipelines extract line items, amounts, tax, and vendor data." },
+      { step: "03", title: "Field Validation", desc: "Deterministic business rules validate totals, line arithmetic, and account references." },
+      { step: "04", title: "ERP Handoff", desc: "Clean, verified data automatically synchronizes with the Prophet 21 (P21) ERP system." },
     ],
     delivers:
-      "Accelerated delivery task completion by 60%, establishing reliable regression confidence and standardized BDD test practices across the organization.",
-    tags: ["BDD", "Cucumber", "Web & Mobile Automation", "Test Strategy", "Stakeholder Reporting"],
-    featured: false,
+      "Transforms unstructured, disparate financial documents into pristine, verified transactional data ready for downstream ERP consumption with zero manual transcription errors.",
+    tags: ["Document AI", "Multi-Tenant", "Batch Ingestion", "Field Validation", "P21 ERP", "ETL Pipelines"],
+    featured: true,
   },
   {
     id: "irctc-imudra",
@@ -272,6 +244,35 @@ export const projects: Project[] = [
     delivers:
       "Ensured zero-defect transaction integrity and high usability across a massive public-facing mobile wallet platform.",
     tags: ["Appium", "Android Automation", "Selenium", "FinTech", "E2E Testing", "Defect Lifecycle"],
+    featured: false,
+  },
+  {
+    id: "sprint-deloitte",
+    name: "Sprint Delivery BDD Automation",
+    tagline: "Enterprise BDD Automation Framework from the Ground Up",
+    category: "quality-ai",
+    categoryLabel: "Enterprise Automation",
+    domain: "Enterprise Telecommunications & Cloud",
+    org: "Deloitte (Rite Software Solutions)",
+    brief:
+      "Enterprise test automation framework engineered from scratch to accelerate quality delivery cycles and eliminate release bottlenecks.",
+    role: "QA Lead",
+    focus: "Framework architecture, BDD implementation, regression test governance, and team leadership.",
+    metrics: "Accelerated task completion by 60% through automation",
+    architecture: [
+      "Engineered a scalable BDD test automation framework from scratch across web and mobile platforms.",
+      "Implemented comprehensive automated regression test suites reducing manual validation turnaround.",
+      "Formulated rigorous test plans, procedures, and standardized defect-tracking protocols.",
+      "Established real-time test metric reporting for executive stakeholders and QA sign-off gates.",
+    ],
+    workflowSteps: [
+      { step: "01", title: "BDD Feature Modeling", desc: "Translated user stories into structured Cucumber feature scenarios." },
+      { step: "02", title: "Automated Suite", desc: "Executed cross-platform web and mobile automation suites across regression runs." },
+      { step: "03", title: "Metrics & Sign-off", desc: "Automated test status reporting for stakeholder review and final QA sign-off." },
+    ],
+    delivers:
+      "Accelerated delivery task completion by 60%, establishing reliable regression confidence and standardized BDD test practices across the organization.",
+    tags: ["BDD", "Cucumber", "Web & Mobile Automation", "Test Strategy", "Stakeholder Reporting"],
     featured: false,
   },
   {
