@@ -59,6 +59,19 @@ export const profile = {
   availabilityStatus: "Available for Architecture & Lead Opportunities",
 };
 
+export function getAssetUrl(path: string): string {
+  const base = (import.meta.env.BASE_URL ?? "/").replace(/\/$/, "");
+  const cleanPath = path.replace(/^\//, "");
+  return base ? `${base}/${cleanPath}` : `/${cleanPath}`;
+}
+
+export function getPageUrl(path: string): string {
+  const base = (import.meta.env.BASE_URL ?? "/").replace(/\/$/, "");
+  const cleanPath = path.replace(/^\//, "");
+  if (!cleanPath) return base || "/";
+  return base ? `${base}/${cleanPath}` : `/${cleanPath}`;
+}
+
 export const executiveHighlights = [
   { value: "10+", label: "Years Experience", sublabel: "Enterprise Architecture & SDET" },
   { value: "3", label: "Enterprise AI Platforms", sublabel: "Agentic, IDP & QA Copilot" },

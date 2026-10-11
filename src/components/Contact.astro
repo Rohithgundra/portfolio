@@ -1,5 +1,5 @@
 ---
-import { profile } from "../data/site";
+import { profile, getPageUrl } from "../data/site";
 ---
 
 <section id="contact" class="relative border-t border-white/[0.08] py-20 lg:py-28">
@@ -209,7 +209,7 @@ import { profile } from "../data/site";
           © {new Date().getFullYear()} {profile.name} · Technical Architect & GenAI Specialist
         </p>
         <div class="flex items-center gap-4">
-          <a href="/resume" class="hover:text-white transition-colors">Resume (PDF)</a>
+          <a href={getPageUrl("resume")} class="hover:text-white transition-colors">Resume (PDF)</a>
           <span>•</span>
           <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">LinkedIn</a>
           <span>•</span>

@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { profile } from "../data/site";
+import { profile, getAssetUrl } from "../data/site";
 
 interface Props {
   title?: string;
@@ -104,7 +104,7 @@ const schemaData = {
     <meta name="twitter:description" content={description} />
 
     <title>{title}</title>
-    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg`} type="image/svg+xml" />
+    <link rel="icon" href={getAssetUrl("favicon.svg")} type="image/svg+xml" />
 
     <!-- Performance: Preconnect & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -1,5 +1,5 @@
 ---
-import { profile } from "../data/site";
+import { profile, getPageUrl } from "../data/site";
 
 const navLinks = [
   { href: "#projects", label: "Projects" },
@@ -49,7 +49,7 @@ const navLinks = [
     <!-- Header Actions -->
     <div class="flex items-center gap-2 pr-1">
       <a
-        href="/resume"
+        href={getPageUrl("resume")}
         class="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.05] px-3 py-1.5 text-xs font-medium text-slate-200 transition-all hover:border-sky-400/40 hover:bg-sky-500/10 hover:text-sky-300"
       >
         <svg class="h-3.5 w-3.5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -101,7 +101,7 @@ const navLinks = [
       }
       <div class="mt-2 pt-2 border-t border-white/[0.08] flex gap-2">
         <a
-          href="/resume"
+          href={getPageUrl("resume")}
           class="flex-1 flex items-center justify-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.04] py-2 text-xs font-medium text-slate-200"
         >
           <span>Resume (PDF)</span>
